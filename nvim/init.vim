@@ -89,6 +89,12 @@ map <leader>gcc :Git commit <CR>
 map <leader>gch :Git checkout <CR>
 map <leader>ga  :Git add <CR>
 
+" Transparency
+
+:function MakeTransparent()
+	:hi Normal ctermbg=NONE guibg=NONE 
+	:hi EndOfBuffer ctermbg=NONE guibg=NONE 
+:endfunction 
 " === Airline ===
 
 let g:airline_skip_empty_sections = 1
