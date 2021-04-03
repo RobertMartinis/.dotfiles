@@ -1,0 +1,6 @@
+* Dotfiles
+  
+** Contains:
+
+- bspwm (and sxhkd)
+- neovim
