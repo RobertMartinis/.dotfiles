@@ -1,14 +1,17 @@
-""" ===Plugins===
+
 call plug#begin('/home/robert/.local/share/nvim/plugged')
 
 "" Development tools
 
 
 " Vim HardMode
-
-Plug 'https://github.com/Raimondi/delimitMate'
+" Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/takac/vim-hardtime'
-" Vim Fugutive
+
+" TypeScript
+Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'https://github.com/tpope/vim-fugitive'
 " Nerd Tree
 Plug 'https://github.com/preservim/nerdtree'
@@ -35,9 +38,13 @@ Plug 'https://github.com/mxw/vim-jsx'
 " Terminal popup
 Plug 'voldikss/vim-floaterm'
 
-
 "" Themes 
+" Seoul256
+
+Plug 'https://github.com/junegunn/seoul256.vim'
 Plug 'dylanaraps/wal.vim'
+" Gruvbox Material
+  Plug 'sainnhe/gruvbox-material'
 " Solarized theme
 Plug 'https://github.com/altercation/vim-colors-solarized'
 " Gruvbox theme
@@ -52,53 +59,64 @@ Plug 'https://github.com/mhartington/oceanic-next'
 Plug 'ayu-theme/ayu-vim'
 " Gruvbox8
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
+" FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
 " === Current theme config ===
 
-colorscheme wal
 "" Current theme: gruvbox8
 
+
+
+  colorscheme wal
 " Oceanic-next
 
-"colorscheme OceanicNext
 
-" Gruvbox
-"let g:gruvbox_transparent_bg = '1' " Transparent bg
- "colorscheme gruvbox8
 
+" colorscheme OceanicNext
+
+" Gr    
+" let g:gruvbox_contrast_dark = 'medium' 
+"   colorscheme gruvbox  
 " Ayu
-" set termguicolors
-let ayucolor="mirage"
-" colorscheme ayu
+" let ayucolor="mirage"
+ " colorscheme ayu
+   " set termguicolors
 
 " Make it transparent
 "highlight! Normal ctermbg=NONE guibg=NONE
 "highlight! EndOfBuffer ctermbg=NONE guibg=NONE
+let g:gruvbox_material_background = 'medium' 
 
+" set termguicolors
+set background=dark
+"    colorscheme gruvbox-material
 
-" === General settings === set relativenumber " Relative line numbering 
-let mapleader = ","
-
-" Quit
-map <leader>q :q <CR>
-
-" Save
+" === General settings = 
+let mapleader = " " 
+set sw=4
+map <leader>qq :q <CR>
 map <leader>s :w <CR>
-imap jj <Esc>
-" NERDTree
-map <leader>n :NERDTree <CR>
+map <leader>n :GFiles<CR>
+map <leader>qw :bw<CR>
 
+" imap jj <Esc>
 " Transparency
 :function MakeTransparent()
 	:hi Normal ctermbg=NONE guibg=NONE 
 	:hi EndOfBuffer ctermbg=NONE guibg=NONE 
 :endfunction 
 
-" Relative numbering
-
 set relativenumber
+set smartindent
+set autoindent
+
+" === Git Fugutive ===
+
+
 " === Airline ===
 
 let g:airline_skip_empty_sections = 1
